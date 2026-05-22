@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "opinion_dynamics"
+version = "0.1.0"
+description = "A cognitive and social dissonance model for opinion dynamics"
+authors = [
+    { name = "Guilherme Almeida Ferreira", email = "gemaemdfll25@mails.tsinghua.edu.cn" }
+]
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy",
+    "pandas",
+    "scipy",
+    "networkx",
+    "matplotlib",
+    "seaborn",
+    "tqdm"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "jupyterlab",
+    "ipykernel"
+]
+
+[tool.setuptools.packages.find]
+include = ["configs*", "core*", "network*", "analysis*", "visualization*", "utils*"]
