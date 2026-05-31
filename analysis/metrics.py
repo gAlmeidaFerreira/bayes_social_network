@@ -32,7 +32,7 @@ def calculate_dirichlet_population_divergence(j_matrix: np.ndarray) -> float:
     if N <= 1:
         return 0.0
     
-    # Enxtract entries from lower triangle
+    # Extract entries from lower triangle
     row_indices, col_indices = np.tril_indices(N, k=-1)
     unique_pairwise_distances = j_matrix[row_indices, col_indices]
     return float(np.mean(unique_pairwise_distances))

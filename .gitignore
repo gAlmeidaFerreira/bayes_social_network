@@ -1,0 +1,41 @@
+# =========================================================================
+# Python Bytecode and Build Caches
+# =========================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.ipynb_checkpoints/
+
+# =========================================================================
+# Project Distribution and Editable Installs
+# =========================================================================
+# Prevents editable install metadata (.egg-info) from being pushed
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# =========================================================================
+# Local Datasets and Simulation Outputs (CRITICAL)
+# =========================================================================
+# This ignores heavy simulation outputs (.csv, .npz) while keeping the structure
+data/
+
+# =========================================================================
+# IDEs, Environments, and System Files
+# =========================================================================
+# Google Antigravity IDE & VS Code workspaces
+.antigravity/
+.vscode/
+.idea/
+
+# Local virtual environments
+env/
+venv/
+.venv/
+
+# OS Specific files
+.DS_Store
+Thumbs.db

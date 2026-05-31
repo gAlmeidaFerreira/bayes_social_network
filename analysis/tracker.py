@@ -26,12 +26,12 @@ class StateTracker:
             self.history[f"mean_p_{k}"] = []
             
         # heavy-data deferred repository: maps { step_idx: alpha_matrix_snapshot}
-        self.alpha_snapshot: Dict[int, np.ndarray] = {}
+        self.alpha_snapshots: Dict[int, np.ndarray] = {}
         
     def record_step(self, step_idx: int, agents: list, ind_rejections: List[bool], soc_rejections: List[bool]):
         """Vectorizes agent states and updates history logs."""
         # Probability expectations from all agents
-        p_matrix = np.vstack([agents.p for agent in agents])
+        p_matrix = np.vstack([agent.p for agent in agents])
         
         # Process fast track telemetry
         self.history["step"].append(step_idx)
@@ -47,7 +47,7 @@ class StateTracker:
         # Process slow track
         if step_idx % self.record_alphas_every == 0:
             alpha_matrix = np.vstack([agent.alphas for agent in agents])
-            self.alpha_snapshots[step_idx] = alpha_matrix.copy()
+            self.alpha_snapshots[str(step_idx)] = alpha_matrix.copy()
     
     def get_dataframe(self):
         """Compiles the time-series history into a standard Pandas DataFrame."""
