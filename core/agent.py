@@ -79,9 +79,3 @@ class Agent:
            self.alphas = self.lambda_decay * self.alphas
            self.get_expectation()
            return False
-        
-            
-        
-        
-    
-        

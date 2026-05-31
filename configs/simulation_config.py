@@ -7,7 +7,6 @@ class SimulationConfig:
     # Network Topology Parameters
     N: int = 100                            # Total number of nodes
     m: int = 3                              # Number of connections of new node on a scale free network
-    K: int = 2                              # Number of discrete opinions
     #TODO: #1 Introduce a gamma distribution for the prior parameters to generate different priors for each agent
     
     # Cognitive and memory parameters
@@ -24,6 +23,8 @@ class SimulationConfig:
     
     # Global simulation settings
     max_steps: int = 10000                  # Max number of timestamps
+    K: int = 2                              # Number of discrete opinions
+    opinions_reliability:np.ndarray = field(default_factory=lambda: np.array([0.5, 0.5], dtype=float)) # reliability of each opinion
     seed: int = 42                          # Random seed for reproducibility
     
     def __post_init__(self):
