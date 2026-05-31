@@ -24,6 +24,7 @@ class SimulationConfig:
     # Global simulation settings
     max_steps: int = 10000                  # Max number of timestamps
     K: int = 2                              # Number of discrete opinions
+    record_alphas_every: int = 200          # Interval to record couting parameters for dirichlet distribution of each agent
     opinions_reliability:np.ndarray = field(default_factory=lambda: np.array([0.5, 0.5], dtype=float)) # reliability of each opinion
     seed: int = 42                          # Random seed for reproducibility
     
